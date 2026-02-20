@@ -109,4 +109,5 @@ if st.button("뉴스 검색 시작 🚀"):
         st.warning("조건에 맞는 뉴스가 없거나 접속이 차단됐어.")
     else:
         is_reverse = True if sort_order == "최신순" else False
-        news_items.sort(key=lambda x: x.get('published_parsed') or time.localtime(0), reverse=
+        news_items.sort(key=lambda x: x.get('published_parsed') or time.localtime(0), reverse=is_reverse)
+
