@@ -109,22 +109,4 @@ if st.button("뉴스 검색 시작 🚀"):
         st.warning("조건에 맞는 뉴스가 없거나 접속이 차단됐어.")
     else:
         is_reverse = True if sort_order == "최신순" else False
-        news_items.sort(key=lambda x: x.get('published_parsed') or time.localtime(0), reverse=is_reverse)
-
-        st.success(f"성공! {source_used}에서 {len(news_items)}개의 기사를 가져왔어.")
-        st.markdown("---")
-        
-        for item in news_items:
-            with st.container():
-                st.subheader(f"📰 {item.title}")
-                
-                published = item.get('published', '날짜 정보 없음')
-                source = item.get('source', {}).get('title', source_used)
-                
-                st.text(f"출처: {source} | {published}")
-                
-                link = item.get('link')
-                if link:
-                    st.link_button("👉 기사 원문 보러가기", link)
-                
-                st.markdown("---")
+        news_items.sort(key=lambda x: x.get('published_parsed') or time.localtime(0), reverse=
